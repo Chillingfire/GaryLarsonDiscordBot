@@ -20,7 +20,7 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if (command === 'bing') {
+    if (command === 'ping') {
         message.channel.send(quotes[Math.floor(Math.random() * quotes.length)]);
     }
 })
