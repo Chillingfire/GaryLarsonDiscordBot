@@ -1,0 +1,14 @@
+{
+  "name": "garylarsondiscordbot",
+  "version": "1.0.0",
+  "description": "Gary Larson Daily Discord Bot",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Kantor",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^13.6.0"
+  }
+}
