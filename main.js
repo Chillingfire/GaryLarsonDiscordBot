@@ -8,8 +8,7 @@ client.once('ready', () => {
     console.log('Gary Larson Daily is online!');
 });
 
-/*
-["*\"Well, I'm addicted... Have you tried Carol's sheep dip?\"*",
+var quotes = ["*\"Well, I'm addicted... Have you tried Carol's sheep dip?\"*",
 "*\"Wait a minute! Isn't anyone here a real sheep?\"*",
 "*\"And now Edgar's gone... Something's going on around here\"*",
 "*\"C'mon, c'mon - it's either one or the other\"*",
@@ -24,15 +23,6 @@ client.once('ready', () => {
 "*\"I\'ve got an idea... How many here have ever seen Alfred Hitchcock's The Birds?\"*",
 "*\"And now... Can dogs really talk?... We found one who\'s willing to try, right after this message\"*",
 "*\"Where the buffalo cruise\"*"]
-*/
-
-var quotes;
-
-const fs = require('fs');
-fs.readFile('farsidequotes.txt', function(err, data) {
-    if(err) throw err;
-    quotes = data.toString().split("\n");
-})
 
 client.on('message', message =>{
     if (!message.content.startsWith(prefix) || message.author.bot) return;
