@@ -30,7 +30,7 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if (command === 'ping') {
+    if (command === 'pong') {
         message.channel.send(quotes[Math.floor(Math.random() * quotes.length)]);
     }
 
