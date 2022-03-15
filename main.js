@@ -43,7 +43,7 @@ client.on('message', message =>{
 })
 
 // Bot token:
-// client.login('OTQyNjEzNjczOTkyNjU0ODk4.YgnDZA.dAZkdEuwgW8FkDvtMreu-iQGIxo');
+// client.login('Put token here');
 
 // Heroku token placeholder:
 client.login(process.env.DJS_TOKEN);
