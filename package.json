@@ -9,6 +9,7 @@
   "author": "Daniel Kantor",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^13.6.0"
+    "discord.js": "^13.6.0",
+    "images-scraper": "^6.4.0"
   }
 }

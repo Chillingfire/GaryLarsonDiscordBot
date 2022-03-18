@@ -8,6 +8,14 @@ client.once('ready', () => {
     console.log('Gary Larson Daily is online!');
 });
 
+var Scraper = require('images-scraper');
+
+const google = new Scraper({
+    puppeteer: {
+        headless: true
+    },
+});
+
 var quotes = [];
 
 const fs = require('fs');
@@ -40,10 +48,19 @@ client.on('message', message =>{
     if (command === 'cow') {
         message.channel.send("tools");
     }
+
+    if (command === 'comic') {
+        (async () => {
+            const image_results = await google.scrape('pinterest gary larson', 50);
+            message.channel.send(image_results[0].url);
+        })();
+    }
+
+    //Create 'help' function
 })
 
 // Bot token:
-// client.login('Put token here');
+//client.login('Token here');
 
 // Heroku token placeholder:
 client.login(process.env.DJS_TOKEN);
