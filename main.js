@@ -5,14 +5,15 @@ const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 const prefix = '!';
 
 client.once('ready', () => {
-    console.log('Gary Larson Daily is online!');
+    console.log('Far Side is online!');
 });
 
 var Scraper = require('images-scraper');
 
 const google = new Scraper({
     puppeteer: {
-        headless: true
+        headless: true,
+        args: ['--no-sandbox']
     },
 });
 
@@ -60,7 +61,7 @@ client.on('message', message =>{
 })
 
 // Bot token:
-//client.login('Token here');
+//client.login('token');
 
 // Heroku token placeholder:
 client.login(process.env.DJS_TOKEN);
