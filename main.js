@@ -38,16 +38,12 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if (command === 'ping') {
+    if (command === 'quote') {
         message.channel.send(quotes[Math.floor(Math.random() * quotes.length)]);
     }
 
     if (command === 'cowtools') {
         message.channel.send("Cow tools");
-    }
-
-    if (command === 'cow') {
-        message.channel.send("tools");
     }
 
     if (command === 'comic') {
@@ -57,7 +53,9 @@ client.on('message', message =>{
         })();
     }
 
-    //Create 'help' function
+    if (command === 'help') {
+        message.channel.send("Commands:\n\n\"!quote\": Prints random Far Side quote\n\"!comic\": Displays random Far Side comic panel\n\"!cowtools\": Cowtools");
+    }
 })
 
 // Bot token:
