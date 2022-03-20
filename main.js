@@ -48,8 +48,13 @@ client.on('message', message =>{
 
     if (command === 'comic') {
         (async () => {
-            const image_results = await google.scrape('pinterest gary larson', 50);
-            message.channel.send(image_results[0].url);
+            try {
+                const image_results = await google.scrape('pinterest gary larson', 300);
+                message.channel.send(image_results[Math.floor(Math.random() * 225)].url);
+            } catch(err) {
+                message.channel.send("*Something went wrong. Please try again.*");
+            }
+            
         })();
     }
 
@@ -59,7 +64,7 @@ client.on('message', message =>{
 })
 
 // Bot token:
-//client.login('token');
+//client.login('Token');
 
 // Heroku token placeholder:
 client.login(process.env.DJS_TOKEN);
