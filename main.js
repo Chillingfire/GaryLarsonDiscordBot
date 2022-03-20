@@ -39,32 +39,43 @@ client.on('message', message =>{
     const command = args.shift().toLowerCase();
 
     if (command === 'quote') {
+        console.log("Printing quote");
         message.channel.send(quotes[Math.floor(Math.random() * quotes.length)]);
     }
 
     if (command === 'cowtools') {
+        console.log("Printing cowtools");
         message.channel.send("Cow tools");
     }
 
     if (command === 'comic') {
+        console.log("Finding comic");
         (async () => {
-            try {
-                const image_results = await google.scrape('pinterest gary larson', 300);
-                message.channel.send(image_results[Math.floor(Math.random() * 225)].url);
-            } catch(err) {
+            errorCount = 0;
+
+            while (errorCount < 5) {
+                try {
+                    const image_results = await google.scrape('pinterest gary larson', 300);
+                    message.channel.send(image_results[Math.floor(Math.random() * 225)].url);
+                    break;
+                } catch(err) {
+                    errorCount++;
+                }
+            }
+            if (errorCount == 5) {
                 message.channel.send("*Something went wrong. Please try again.*");
             }
-            
         })();
     }
 
     if (command === 'help') {
+        console.log("Printing help");
         message.channel.send("Commands:\n\n\"!quote\": Prints random Far Side quote\n\"!comic\": Displays random Far Side comic panel\n\"!cowtools\": Cowtools");
     }
 })
 
 // Bot token:
-//client.login('Token');
+//client.login('token');
 
 // Heroku token placeholder:
 client.login(process.env.DJS_TOKEN);
